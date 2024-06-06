@@ -1,5 +1,5 @@
 import os 
-from pathlib import path 
+from pathlib import Path 
 import logging 
 
 logging.basicConfig(level=logging.INFO)
@@ -22,18 +22,19 @@ f"src/{project_name}/utils.py",
 "dockerfile",
 ]
 
-for filepath in list_of_files:
-    filepath=path(filepath)
-    filepath,filename=os.path.split(filepath)
+for filepath in list_of_file:
+    filepath=Path(filepath)
+    filepath,filename=os.Path.split(filepath)
 
     if filedir !="":
         os.maredir(filedir,exist_ok=True)
         logging.info(f"Creating directory:{filedir} for thr file {filename}")
 
-    if (not os.path.exists(filepath)) or (os.path.getsize(filepath)==0):
+    if (not os.Path.exists(filepath)) or (os.path.getsize(filepath)==0):
         with open(filepath,'w') as f:
             pass
             logging.info(f"Creating empty file:{filepath}")
 
     else:
         logging.info(f"{filename} is alreday exists")
+
